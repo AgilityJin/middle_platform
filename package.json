@@ -1,0 +1,36 @@
+{
+  "name": "middle_platform",
+  "version": "1.0.0",
+  "description": "个人中台服务",
+  "main": "index.js",
+  "author": "Agility Jin <Agility_Jin@outlook.com>",
+  "license": "MIT",
+  "repository": "git@github.com:AgilityJin/middle_platform.git",
+  "private": true,
+  "scripts": {
+    "commit": "git cz"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@lerna/project": "^3.21.0",
+    "commitizen": "^4.2.2",
+    "cz-lerna-changelog": "^2.0.3",
+    "husky": "^4.3.5"
+  }
+}
