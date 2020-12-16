@@ -5,6 +5,14 @@ type Author {
   posts: [String]
 }
 
+type User {
+  uuid: String
+  nickname: String
+  role: String
+  lastLoginTime: Int
+}
+
 type Query {
   findUser(id: Int!): Author
+  getUsers(page: Int, size: Int): [User]
 }

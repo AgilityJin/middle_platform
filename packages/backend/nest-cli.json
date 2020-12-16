@@ -16,6 +16,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/gateway/tsconfig.app.json"
       }
+    },
+    "micro-user": {
+      "type": "application",
+      "root": "apps/micro-user",
+      "entryFile": "main",
+      "sourceRoot": "apps/micro-user/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/micro-user/tsconfig.app.json"
+      }
     }
   }
 }
