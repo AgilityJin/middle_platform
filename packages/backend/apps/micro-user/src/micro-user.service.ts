@@ -1,3 +1,4 @@
+import { ConfigService, DATABASE_HOST } from '@app/config';
 import { Injectable } from '@nestjs/common';
 
 // test
@@ -10,11 +11,14 @@ export interface User {
 
 @Injectable()
 export class MicroUserService {
+  constructor (
+    private configService: ConfigService
+  ) {}
   async getUserList(): Promise<User[]> {
     return [
       {
         uuid: 'fdalsfdkfnsdkaflsdfnsdf',
-        nickname: 'test',
+        nickname: this.configService.get(DATABASE_HOST),
         lastLoginTime: Date.now()
       }
     ];
