@@ -1,0 +1,44 @@
+type Mutation {
+  """ 创建用户 """
+  create(user: CreateUser!): User
+}
+
+enum Gender {
+  MAN
+  WOMAN
+  SECRECY
+}
+
+scalar MAN
+scalar WOMAN
+scalar SECRECY
+
+type User {
+  account: String
+  password: String
+  phone: String
+  name: String
+  nickname: String
+  gender: Gender
+  age: Int
+  email: String
+  roles: [Int]
+}
+
+input CreateUser {
+  account: String!
+  password: String
+  phone: String
+  name: String
+  nickname: String
+  gender: Gender
+  age: Int
+  email: String
+  roles: [Int]
+}
+
+type ResultUser {
+  code: Int
+  message: String
+  data: [User]
+}

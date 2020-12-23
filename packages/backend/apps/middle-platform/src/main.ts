@@ -1,15 +1,16 @@
-import { MICRO_USER } from '@common/configure';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { MicroUserModule } from './micro-user.module';
+import { MiddlePlatformModule } from './middle-platform.module';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    MicroUserModule,
+    MiddlePlatformModule,
     {
       transport: Transport.TCP,
     }
   );
-  await app.listen(() => console.log('Microservice User is listening'));
+
+  await app.listen(() => console.log('Microservice Middle_Platform is listening'));
 }
+
 bootstrap();

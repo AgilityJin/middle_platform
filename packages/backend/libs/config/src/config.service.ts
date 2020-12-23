@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import * as Joi from '@hapi/joi';
-import * as path from 'path';
 import { ApiException } from '@common/exception';
 
 type IEnvConfig = Record<string, any>;
@@ -10,9 +8,15 @@ type IEnvConfig = Record<string, any>;
 @Injectable()
 export class ConfigService {
   private readonly envConfig: IEnvConfig;
-  constructor(filePath: string) {
-    const config = dotenv.parse(fs.readFileSync(filePath));
+  constructor() {
+    const config = this.getConfigData()
     this.envConfig = this.validateEnv(config);
+  }
+
+  private getConfigData () {
+    const url = `${process.cwd()}/${process.env.NODE_ENV || 'development'}.json`
+    const json = fs.readFileSync(url, 'utf-8')
+    return JSON.parse(json)
   }
 
   /**
@@ -48,7 +52,7 @@ export class ConfigService {
       DATABASE_HOST: Joi.string().default('localhost'),
       DATABASE_PORT: Joi.number().default(3306),
       DATABASE_NAME: Joi.string().default('middle_platform'),
-      DATABASE_USER: Joi.string().default('localhost'),
+      DATABASE_USER: Joi.string().default('root'),
       DATABASE_PASSWORD: Joi.string().default('123456'),
     });
 

@@ -17,15 +17,6 @@
         "tsConfigPath": "apps/gateway/tsconfig.app.json"
       }
     },
-    "micro-user": {
-      "type": "application",
-      "root": "apps/micro-user",
-      "entryFile": "main",
-      "sourceRoot": "apps/micro-user/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/micro-user/tsconfig.app.json"
-      }
-    },
     "config": {
       "type": "library",
       "root": "libs/config",
@@ -42,6 +33,15 @@
       "sourceRoot": "libs/db/src",
       "compilerOptions": {
         "tsConfigPath": "libs/db/tsconfig.lib.json"
+      }
+    },
+    "middle-platform": {
+      "type": "application",
+      "root": "apps/middle-platform",
+      "entryFile": "main",
+      "sourceRoot": "apps/middle-platform/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/middle-platform/tsconfig.app.json"
       }
     }
   }

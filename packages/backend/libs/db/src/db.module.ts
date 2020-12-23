@@ -17,7 +17,7 @@ import { join } from 'path';
           database: config.get(DATABASE_NAME),
           username: config.get(DATABASE_USER),
           password: config.get(DATABASE_PASSWORD),
-          migrations: [join(__dirname, './migrations/**/*.migration{.ts,.js}')],
+          migrations: [join(__dirname, './migrations/**/*{.ts,.js}')],
           cli: {
             migrationsDir: "./migrations",
             entitiesDir: "./entities"
