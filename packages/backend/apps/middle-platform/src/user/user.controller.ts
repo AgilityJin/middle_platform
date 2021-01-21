@@ -17,7 +17,7 @@ export class UserController {
    * @returns
    * @memberof UserController
    */
-  @MessagePattern({ cmd: MicroService.User.create.cmd })
+  @MessagePattern(MicroService.User.create.cmd)
   async create (data: UserCreateDto) {
     return this.userService.userCreate(data)
   }

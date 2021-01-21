@@ -12,6 +12,6 @@ export class UserService {
   ) {}
 
   async userCreate (data: UserCreateDto) {
-    return this.userRepo.create(data)
+    return this.userRepo.save(data)
   }
 }
